@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Header from './Header';
 
-const Login = () => {
+const Protected = ({ Component }) => {
   const history = useHistory();
+
   useEffect(() => {
-    if (localStorage.getItem('user-info')) {
-      history.push('/add');
+    if (!localStorage.getItem('user-info')) {
+      history.push('/register');
     }
   }, [history]);
+
   return (
     <div>
-      <Header />
-      Login
+      <Component />
     </div>
   );
 };
 
-export default Login;
+export default Protected;

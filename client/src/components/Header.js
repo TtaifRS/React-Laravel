@@ -7,18 +7,25 @@ const Header = () => {
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="#home">Navbar</Navbar.Brand>
       <Nav className="mr-auto">
-        <Link to="/login" className="nav-link">
-          Login
-        </Link>
-        <Link to="/register" className="nav-link">
-          Register
-        </Link>
-        <Link to="/add" className="nav-link">
-          Add Product
-        </Link>
-        <Link to="/update" className="nav-link">
-          Update Product
-        </Link>
+        {localStorage.getItem('user-info') ? (
+          <>
+            <Link to="/add" className="nav-link">
+              Add Product
+            </Link>
+            <Link to="/update" className="nav-link">
+              Update Product
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="nav-link">
+              Login
+            </Link>
+            <Link to="/register" className="nav-link">
+              Register
+            </Link>
+          </>
+        )}
       </Nav>
     </Navbar>
   );

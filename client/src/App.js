@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 //components
@@ -7,11 +7,11 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddProduct from './components/AddProduct';
 import UpdateProduct from './components/UpdateProduct';
+import Protected from './components/Protected';
 
 const App = () => {
   return (
     <Router>
-      <Header />
       <Route path="/login">
         <Login />
       </Route>
@@ -19,10 +19,10 @@ const App = () => {
         <Register />
       </Route>
       <Route path="/add">
-        <AddProduct />
+        <Protected Component={AddProduct} />
       </Route>
       <Route path="/update">
-        <UpdateProduct />
+        <Protected Component={UpdateProduct} />
       </Route>
     </Router>
   );
