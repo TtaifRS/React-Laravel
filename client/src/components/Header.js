@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import Logout from './Logout';
+
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
@@ -27,6 +29,7 @@ const Header = () => {
           </>
         )}
       </Nav>
+      {localStorage.getItem('user-info') ? <Logout /> : null}
     </Navbar>
   );
 };
